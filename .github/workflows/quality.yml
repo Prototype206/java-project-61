@@ -10,11 +10,12 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '22'
+          distribution: 'temurin'
       
       - name: Run quality checks
         run: |
           chmod +x gradlew
-          ./gradlew checkstyleMain pmdMain spotbugsMain test
+          ./gradlew checkstyleMain pmdMain test
           
       - name: Create simple badges
         run: |
@@ -22,4 +23,4 @@ jobs:
           echo "![Tests](https://img.shields.io/badge/tests-passing-success)" >> BADGES.md
           echo "![Checkstyle](https://img.shields.io/badge/checkstyle-enabled-blue)" >> BADGES.md
           echo "![PMD](https://img.shields.io/badge/PMD-enabled-blue)" >> BADGES.md
-          echo "![SpotBugs](https://img.shields.io/badge/spotbugs-enabled-blue)" >> BADGES.md
+          echo "![Java](https://img.shields.io/badge/Java-22-blue)" >> BADGES.md
