@@ -9,3 +9,5 @@ bin/
 .settings/
 *.jar
 *.class
+
+!gradle/wrapper/gradle-wrapper.jar
