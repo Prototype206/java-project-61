@@ -6,7 +6,15 @@
 ![Java CI](https://github.com/Prototype206/java-project-61/workflows/Quality%20Check/badge.svg)
 ![Java](https://img.shields.io/badge/Java-22-blue)
 
-![Greetings](screenshots/choice-1.png)
-![Even win](screenshots/choice-2-win.png)
-![Even lose](screenshots/choice-2-lose.png)
-![Exit](screenshots/choice-3-exit.png)
+### User's Greeting
+![Greetings](screenshots/Greetings.png)
+### Victory in the app Even 
+![Even win](screenshots/EvenGame-win.png)
+### Defeat in the app Even 
+![Even lose](screenshots/EvenGame-lose.png)
+### Victory in the app Calc 
+![Calc win](screenshots/CalcGame-win.png)
+### Defeat in the app Calc 
+![Calc lose](screenshots/CalcGame-lose.png)
+### Exiting the app   
+![Exit](screenshots/Exiting-app.png)
