@@ -5,6 +5,7 @@ import java.util.Scanner;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 public class Engine {
 	private static int scoreCounter = 0;
@@ -14,6 +15,7 @@ public class Engine {
 	static final int EVEN_GAME_NUMBER = 2;
 	static final int CALC_GAME_NUMBER = 3;
 	static final int GCD_GAME_NUMBER = 4;
+	static final int PROGRESSION_GAME_NUMBER = 5;
 	
 	public static void runGame(int gameNumber, Scanner scanner) {
 		for(int i = 0; i<scoreToWin; i++) {
@@ -29,6 +31,10 @@ public class Engine {
 				break;
 			case GCD_GAME_NUMBER:
 				correctAnswer.append(GCD.generateCorrectAnswer());
+				break;
+			case PROGRESSION_GAME_NUMBER:
+				correctAnswer.append(Progression.generateCorrectAnswer());
+				Progression.generateProgression();
 			}
 			
 			System.out.print("Your answer: ");
