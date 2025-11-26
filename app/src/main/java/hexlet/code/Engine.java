@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 public class Engine {
 	private static int scoreCounter = 0;
@@ -12,11 +13,13 @@ public class Engine {
 	private static StringBuilder usersAnswer = new StringBuilder();
 	static final int EVEN_GAME_NUMBER = 2;
 	static final int CALC_GAME_NUMBER = 3;
+	static final int GCD_GAME_NUMBER = 4;
 	
 	public static void runGame(int gameNumber, Scanner scanner) {
 		for(int i = 0; i<scoreToWin; i++) {
 			correctAnswer.setLength(0);
 			usersAnswer.setLength(0);
+			
 			switch(gameNumber) {
 			case EVEN_GAME_NUMBER:
 				correctAnswer.append(Even.generateCorrectAnswer());
@@ -24,7 +27,10 @@ public class Engine {
 			case CALC_GAME_NUMBER:
 				correctAnswer.append(Calc.generateCorrectAnswer());
 				break;
+			case GCD_GAME_NUMBER:
+				correctAnswer.append(GCD.generateCorrectAnswer());
 			}
+			
 			System.out.print("Your answer: ");
 			usersAnswer.append(scanner.nextLine());
 			if(usersAnswer.toString().equals(correctAnswer.toString())) {

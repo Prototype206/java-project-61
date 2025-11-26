@@ -16,5 +16,9 @@
 ![Calc win](screenshots/CalcGame-win.png)
 ### Defeat in the app Calc 
 ![Calc lose](screenshots/CalcGame-lose.png)
+### Victory in the app GCD 
+![GCD win](screenshots/GCDGame-win.png)
+### Defeat in the app GCD 
+![GCD lose](screenshots/GCDGame-lose.png)
 ### Exiting the app   
 ![Exit](screenshots/Exiting-app.png)
