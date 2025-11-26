@@ -36,4 +36,5 @@ jobs:
         working-directory: ./app
         run: |
           chmod +x gradlew
-        run: ./gradlew build sonar --info
+          ./gradlew build sonar --info
+          
