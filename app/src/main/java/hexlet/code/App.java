@@ -4,6 +4,7 @@ import java.util.Scanner;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 public class App {
@@ -12,7 +13,7 @@ public class App {
 		try(Scanner scanner = new Scanner(System.in)) {
 			
 			System.out.println("Please enter the game number and press Enter.");
-			System.out.print("1 - Greet\n2 - Even\n3 - Cacl\n4 - GCD\n5 - Progression\n0 - Exit\nYour choice: ");
+			System.out.print("1 - Greet\n2 - Even\n3 - Cacl\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit\nYour choice: ");
 			int usersChoise = 0;
 			
 			try {
@@ -45,6 +46,11 @@ public class App {
 				Cli.greetings(scanner);
 				Progression.startGameProgression();
 				Engine.runGame(Engine.PROGRESSION_GAME_NUMBER, scanner);
+				break;
+			case 6:
+				Cli.greetings(scanner);
+				Prime.startGamePrime();
+				Engine.runGame(Engine.PRIME_GAME_NUMBER, scanner);
 				break;
 			case 0:
 				break;

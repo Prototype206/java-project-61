@@ -32,5 +32,9 @@
 ![Progression win](screenshots/ProgressionGame-win.png)
 ### Defeat in the app Progression 
 ![Progression lose](screenshots/ProgressionGame-lose.png)
+### Victory in the app Prime 
+![Prime win](screenshots/PrimeGame-win.png)
+### Defeat in the app Prime 
+![Prime lose](screenshots/PrimeGame-lose.png)
 ### Exiting the app   
 ![Exit](screenshots/Exiting-app.png)

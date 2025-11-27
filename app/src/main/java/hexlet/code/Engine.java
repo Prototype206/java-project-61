@@ -5,6 +5,7 @@ import java.util.Scanner;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 public final class Engine {
@@ -16,6 +17,7 @@ public final class Engine {
 	static final int CALC_GAME_NUMBER = 3;
 	static final int GCD_GAME_NUMBER = 4;
 	static final int PROGRESSION_GAME_NUMBER = 5;
+	static final int PRIME_GAME_NUMBER = 6;
 	
 	private Engine() {
 		throw new AssertionError("Utility class instantiation prohibited");
@@ -27,21 +29,24 @@ public final class Engine {
 			usersAnswer.setLength(0);
 			
 			switch(gameNumber) {
-			case EVEN_GAME_NUMBER:
-				correctAnswer.append(Even.generateCorrectAnswer());
-				break;
-			case CALC_GAME_NUMBER:
-				correctAnswer.append(Calc.generateCorrectAnswer());
-				break;
-			case GCD_GAME_NUMBER:
-				correctAnswer.append(GCD.generateCorrectAnswer());
-				break;
-			case PROGRESSION_GAME_NUMBER:
-				correctAnswer.append(Progression.generateCorrectAnswer());
-				Progression.generateProgression();
-				break;
-			default:
-				throw new IllegalArgumentException("Unknown number of game " + gameNumber);
+				case EVEN_GAME_NUMBER:
+					correctAnswer.append(Even.generateCorrectAnswer());
+					break;
+				case CALC_GAME_NUMBER:
+					correctAnswer.append(Calc.generateCorrectAnswer());
+					break;
+				case GCD_GAME_NUMBER:
+					correctAnswer.append(GCD.generateCorrectAnswer());
+					break;
+				case PROGRESSION_GAME_NUMBER:
+					correctAnswer.append(Progression.generateCorrectAnswer());
+					Progression.generateProgression();
+					break;
+				case PRIME_GAME_NUMBER:
+					correctAnswer.append(Prime.generateCorrectAnswer());
+					break;
+				default:
+					throw new IllegalArgumentException("Unknown number of game " + gameNumber);
 			}
 			
 			System.out.print("Your answer: ");
