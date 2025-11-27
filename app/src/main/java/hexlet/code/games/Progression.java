@@ -31,7 +31,6 @@ public final class Progression {
 
 	public static void generateProgression() {
 		StringBuilder progressionString = new StringBuilder();
-		progressionString.setLength(0);
 		progressionString.append("Question: ");
 		for(int i = 0; i < progressionLength; i++) {
 			if(i == numberToSkip) {
@@ -39,7 +38,7 @@ public final class Progression {
 				sumOfNumbers += numberTwo;
 				continue;
 			}
-			progressionString.append(sumOfNumbers + " ");
+			progressionString.append(sumOfNumbers).append(" ");
 			sumOfNumbers += numberTwo;
 		}
 		System.out.println(progressionString.toString());

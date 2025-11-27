@@ -14,10 +14,8 @@ public final class Even {
 		
 
 	public static String generateCorrectAnswer() {
-		StringBuilder correctAnswer = new StringBuilder();
 		final int evenDivisor = 2;
 		final int oddRemainder = 1;
-		correctAnswer.setLength(0);
 		int randomNumber = random.nextInt(100);
 		System.out.println("Question: " + randomNumber);
 		

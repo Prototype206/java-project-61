@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.random;;
+import static hexlet.code.Engine.random;
 
 public final class Prime {
 	private Prime() {
