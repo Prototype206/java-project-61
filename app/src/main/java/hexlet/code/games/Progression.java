@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Progression {
+public final class Progression {
 	private static int numberOne;
 	private static int numberTwo;
 	private static int sumOfNumbers;
@@ -10,6 +10,10 @@ public class Progression {
 	private static int numberToSkip;
 	private static StringBuilder progressionString = new StringBuilder();
 	private static int correctAnswer;
+	
+	private Progression() {
+		throw new AssertionError("Utility class instantiation prohibited");
+	}
 
 	public static void startGameProgression() {
 		System.out.println("What number is missing in the progression?");

@@ -1,9 +1,13 @@
 package hexlet.code.games;
 
-public class Even {
+public final class Even {
 	private static int evenDivisor = 2;
 	private static int oddRemainder = 1;
 	private static StringBuilder correctAnswer = new StringBuilder();
+	
+	private Even() {
+		throw new AssertionError("Utility class instantiation prohibited");
+	}
 	
 	public static void startGameEven() {
 		System.out.println("Answer \'yes\' if the number is even, otherwise answer \'no\'.");

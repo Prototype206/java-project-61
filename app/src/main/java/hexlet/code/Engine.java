@@ -7,7 +7,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 
-public class Engine {
+public final class Engine {
 	private static int scoreCounter = 0;
 	private static int scoreToWin = 3;
 	private static StringBuilder correctAnswer = new StringBuilder();
@@ -16,6 +16,10 @@ public class Engine {
 	static final int CALC_GAME_NUMBER = 3;
 	static final int GCD_GAME_NUMBER = 4;
 	static final int PROGRESSION_GAME_NUMBER = 5;
+	
+	private Engine() {
+		throw new AssertionError("Utility class instantiation prohibited");
+	}
 	
 	public static void runGame(int gameNumber, Scanner scanner) {
 		for(int i = 0; i<scoreToWin; i++) {
@@ -35,6 +39,9 @@ public class Engine {
 			case PROGRESSION_GAME_NUMBER:
 				correctAnswer.append(Progression.generateCorrectAnswer());
 				Progression.generateProgression();
+				break;
+			default:
+				throw new IllegalArgumentException("Unknown number of game " + gameNumber);
 			}
 			
 			System.out.print("Your answer: ");

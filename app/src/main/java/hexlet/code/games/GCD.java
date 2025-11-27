@@ -1,9 +1,13 @@
 package hexlet.code.games;
 
-public class GCD {
+public final class GCD {
 	private static int numberA;
 	private static int numberB;
 	private static int numberC;
+	
+	private GCD() {
+		throw new AssertionError("Utility class instantiation prohibited");
+	}
 	
 	public static void startGameGCD() {
 		System.out.println("Find the greatest common divisor of given numbers.");
