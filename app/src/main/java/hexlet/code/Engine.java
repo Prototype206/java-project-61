@@ -56,11 +56,11 @@ public final class Engine {
 				scoreCounter++;
 			}
 			else{
-				System.out.println(usersAnswer + " is wrong answer ;(. Correct answer was " + correctAnswer.toString() + ".\nLet\'s try again, " + Cli.userName + "!");
+				System.out.println(usersAnswer + " is wrong answer ;(. Correct answer was " + correctAnswer + ".\nLet\'s try again, " + Cli.USER_NAME + "!");
 				break;
 			}
 			if(scoreCounter == scoreToWin) {
-				System.out.println("Congratulations, " + Cli.userName);
+				System.out.println("Congratulations, " + Cli.USER_NAME);
 			}
 		}
 	}

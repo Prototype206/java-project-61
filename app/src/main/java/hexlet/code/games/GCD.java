@@ -1,9 +1,8 @@
 package hexlet.code.games;
 
+import java.util.Random;
+
 public final class GCD {
-	private static int numberA;
-	private static int numberB;
-	private static int numberC;
 	
 	private GCD() {
 		throw new AssertionError("Utility class instantiation prohibited");
@@ -14,8 +13,10 @@ public final class GCD {
 	}
 	
 	public static String generateCorrectAnswer() {
-		numberA = (int) (Math.random()*100);
-		numberB = (int) (Math.random()*100);
+		Random random = new Random();
+		int numberA = random.nextInt(100);
+		int numberB = random.nextInt(100);
+		int numberC;
 		System.out.println("Question: " + numberA + " " + numberB);
 		while(true) {
 			if(numberB > 0) {

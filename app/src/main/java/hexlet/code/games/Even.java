@@ -1,9 +1,8 @@
 package hexlet.code.games;
 
+import java.util.Random;
+
 public final class Even {
-	private static int evenDivisor = 2;
-	private static int oddRemainder = 1;
-	private static StringBuilder correctAnswer = new StringBuilder();
 	
 	private Even() {
 		throw new AssertionError("Utility class instantiation prohibited");
@@ -15,17 +14,20 @@ public final class Even {
 		
 
 	public static String generateCorrectAnswer() {
+		Random random = new Random();
+		StringBuilder correctAnswer = new StringBuilder();
+		final int evenDivisor = 2;
+		final int oddRemainder = 1;
 		correctAnswer.setLength(0);
-		int randomNumber = (int) (Math.random()*100);
+		int randomNumber = random.nextInt(100);
+		System.out.println("Question: " + randomNumber);
+		
 		if(randomNumber % evenDivisor == oddRemainder) {
-			correctAnswer.append("no");
+			return "no";
 		}
 		else {
-			correctAnswer.append("yes");
+			return "yes";
 		}
-		
-		System.out.println("Question: " + randomNumber);
-		return correctAnswer.toString();
 	}
 		
 

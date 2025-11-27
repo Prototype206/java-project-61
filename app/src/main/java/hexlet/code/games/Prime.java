@@ -1,13 +1,8 @@
 package hexlet.code.games;
 
-public final class Prime {
-	private static int number;
-	private static int maxValue;
-	private final static int MIN_VALUE = 3;
-	private final static int EVEN_DIVISOR = 2;
+import java.util.Random;
 
-	
-	
+public final class Prime {
 	private Prime() {
 		throw new AssertionError("Utility class instantiation prohibited");
 	}
@@ -17,8 +12,12 @@ public final class Prime {
 	}
 	
 	public static String generateCorrectAnswer() {
-		number = (int) (Math.random()*100);
-		maxValue = (int) (Math.ceil(Math.sqrt(number)));
+		Random random = new Random();
+		int number = random.nextInt(100);
+		int maxValue = (int) (Math.ceil(Math.sqrt(number)));
+		final int MIN_VALUE = 3;
+		final int EVEN_DIVISOR = 2;
+		
 		System.out.println("Question: " + number);
 		if(number == EVEN_DIVISOR) {
 			return "yes";

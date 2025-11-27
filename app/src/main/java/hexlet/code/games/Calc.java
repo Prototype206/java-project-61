@@ -1,13 +1,9 @@
 package hexlet.code.games;
 
+import java.util.Random;
+
 public final class Calc {
-	private static int minValue = 0;
-	private static int maxValue = 2;
-	private static int operationNumber;
-	private static int correctAnswer = 0;
-	private static int numberOne;
-	private static int numberTwo;
-	
+
 	private Calc() {
 		throw new AssertionError("Utility class instantiation prohibited");
 	}
@@ -18,9 +14,11 @@ public final class Calc {
 	}
 		
 		public static String generateCorrectAnswer() {
-			numberOne = (int) (Math.random()*100);
-			numberTwo = (int) (Math.random()*100);
-			operationNumber = (int) (Math.random()*(maxValue-minValue+1)+minValue);
+			Random random = new Random();
+			int correctAnswer;
+			int numberOne = random.nextInt(100);
+			int numberTwo = random.nextInt(100);
+			int operationNumber = random.nextInt(3);
 			
 			System.out.print("Question: " + numberOne);
 			
