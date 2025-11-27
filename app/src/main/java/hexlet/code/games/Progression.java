@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import static hexlet.code.Engine.random;
 
 
 public final class Progression {
@@ -18,7 +18,6 @@ public final class Progression {
 	}
 
 	public static String generateCorrectAnswer() {
-		Random random = new Random();
 		int maxValue = 20;
 		int minValue = 7;
 		int numberOne = random.nextInt(100);

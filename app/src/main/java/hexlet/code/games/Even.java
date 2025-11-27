@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import static hexlet.code.Engine.random;
 
 public final class Even {
 	
@@ -14,7 +14,6 @@ public final class Even {
 		
 
 	public static String generateCorrectAnswer() {
-		Random random = new Random();
 		StringBuilder correctAnswer = new StringBuilder();
 		final int evenDivisor = 2;
 		final int oddRemainder = 1;

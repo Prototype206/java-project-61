@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.Scanner;
+import java.util.Random;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
@@ -9,6 +10,7 @@ import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 public final class Engine {
+	public static final Random random = new Random();
 	private static int scoreCounter = 0;
 	private static int scoreToWin = 3;
 	private static StringBuilder correctAnswer = new StringBuilder();

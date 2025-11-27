@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import static hexlet.code.Engine.random;
 
 public final class GCD {
 	
@@ -13,7 +13,6 @@ public final class GCD {
 	}
 	
 	public static String generateCorrectAnswer() {
-		Random random = new Random();
 		int numberA = random.nextInt(100);
 		int numberB = random.nextInt(100);
 		int numberC;

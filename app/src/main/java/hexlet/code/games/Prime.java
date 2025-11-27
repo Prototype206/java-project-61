@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import static hexlet.code.Engine.random;;
 
 public final class Prime {
 	private Prime() {
@@ -12,7 +12,6 @@ public final class Prime {
 	}
 	
 	public static String generateCorrectAnswer() {
-		Random random = new Random();
 		int number = random.nextInt(100);
 		int maxValue = (int) (Math.ceil(Math.sqrt(number)));
 		final int MIN_VALUE = 3;
