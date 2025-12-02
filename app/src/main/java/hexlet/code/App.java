@@ -24,32 +24,22 @@ public class App {
 			
 			switch(usersChoise){
 			case 1:
-				Cli.greetings(scanner);
+				Cli.greetings();
 				break;
 			case 2:
-				Cli.greetings(scanner);
 				Even.startGameEven();
-				Engine.runGame(Engine.EVEN_GAME_NUMBER, scanner);
 				break;
 			case 3:
-				Cli.greetings(scanner);
 				Calc.startGameCalc();
-				Engine.runGame(Engine.CALC_GAME_NUMBER, scanner);
 				break;
 			case 4:
-				Cli.greetings(scanner);
 				GCD.startGameGCD();
-				Engine.runGame(Engine.GCD_GAME_NUMBER, scanner);
 				break;
 			case 5:
-				Cli.greetings(scanner);
 				Progression.startGameProgression();
-				Engine.runGame(Engine.PROGRESSION_GAME_NUMBER, scanner);
 				break;
 			case 6:
-				Cli.greetings(scanner);
 				Prime.startGamePrime();
-				Engine.runGame(Engine.PRIME_GAME_NUMBER, scanner);
 				break;
 			case 0:
 				break;

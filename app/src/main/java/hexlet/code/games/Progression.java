@@ -2,36 +2,43 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.random;
 
+import hexlet.code.Engine;
+
 
 public final class Progression {
-	private static int numberTwo;
-	private static int sumOfNumbers;
-	private static int progressionLength;
-	private static int numberToSkip;
 	
 	private Progression() {
 		throw new AssertionError("Utility class instantiation prohibited");
 	}
 
 	public static void startGameProgression() {
-		System.out.println("What number is missing in the progression?");
+		String gameDescription = "What number is missing in the progression?";
+		String[][] questionsAndAnswers = new String[3][2];
+		questionsAndAnswers = generateQuestionAnswer(questionsAndAnswers);
+		Engine.runGame(gameDescription, questionsAndAnswers);
 	}
 
-	public static String generateCorrectAnswer() {
+	public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
 		int maxValue = 20;
 		int minValue = 7;
-		int numberOne = random.nextInt(100);
-		numberTwo = random.nextInt(100);
-		sumOfNumbers = numberOne;
-		progressionLength = random.nextInt(maxValue - minValue + 1) + minValue;
-		numberToSkip = random.nextInt(progressionLength);
-		int correctAnswer = numberOne + numberTwo * numberToSkip;
-		return String.valueOf(correctAnswer);
+		int numberOfIterations = questionsAndAnswers.length;
+		
+		for(int i = 0; i < numberOfIterations ;i++) {
+			int numberOne = random.nextInt(100);
+			int numberTwo = random.nextInt(100);
+			int sumOfNumbers = numberOne;
+			int progressionLength = random.nextInt(maxValue - minValue + 1) + minValue;
+			int numberToSkip = random.nextInt(progressionLength);
+			int correctAnswer = numberOne + numberTwo * numberToSkip;
+			questionsAndAnswers[i][0] = generateProgression(numberTwo, sumOfNumbers, progressionLength, numberToSkip);
+			questionsAndAnswers[i][1] = String.valueOf(correctAnswer);
+		}
+		return questionsAndAnswers;
 	}
+	
 
-	public static void generateProgression() {
+	public static String generateProgression(int numberTwo, int sumOfNumbers, int progressionLength, int numberToSkip){
 		StringBuilder progressionString = new StringBuilder();
-		progressionString.append("Question: ");
 		for(int i = 0; i < progressionLength; i++) {
 			if(i == numberToSkip) {
 				progressionString.append(".. ");
@@ -41,7 +48,7 @@ public final class Progression {
 			progressionString.append(sumOfNumbers).append(" ");
 			sumOfNumbers += numberTwo;
 		}
-		System.out.println(progressionString.toString());
+		return progressionString.toString();
 	}
 	
 }

@@ -1,2 +1,17 @@
+# Ignore Gradle project-specific cache directory
+app/.gradle/
+app/build/
+
+# Ignore Eclipse java
+app/.classpath
+app/.project
+app/bin/
+app/.settings/
+app/*.jar
+app/*.class
+
+!app/gradle/wrapper/gradle-wrapper.jar
+
+
 desktop.ini
 Thumbs.db

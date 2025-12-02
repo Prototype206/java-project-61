@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.random;
 
+import hexlet.code.Engine;
+
 public final class GCD {
 	
 	private GCD() {
@@ -9,24 +11,32 @@ public final class GCD {
 	}
 	
 	public static void startGameGCD() {
-		System.out.println("Find the greatest common divisor of given numbers.");
+		String gameDescription = "Find the greatest common divisor of given numbers.";
+		String[][] questionsAndAnswers = new String[3][2];
+		questionsAndAnswers = generateQuestionAnswer(questionsAndAnswers);
+		Engine.runGame(gameDescription, questionsAndAnswers);
 	}
 	
-	public static String generateCorrectAnswer() {
-		int numberA = random.nextInt(100);
-		int numberB = random.nextInt(100);
-		int numberC;
-		System.out.println("Question: " + numberA + " " + numberB);
-		while(true) {
-			if(numberB > 0) {
-				numberC = numberA;
-				numberA = numberB;
-				numberB = numberC % numberB;
+	public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
+		int numberOfIterations = questionsAndAnswers.length;
+		
+		for(int i = 0; i < numberOfIterations ;i++) {
+			int numberA = random.nextInt(100);
+			int numberB = random.nextInt(100);
+			int numberC;
+			questionsAndAnswers[i][0] = numberA + " " + numberB;
+			while(true) {
+				if(numberB > 0) {
+					numberC = numberA;
+					numberA = numberB;
+					numberB = numberC % numberB;
+				}
+				else {
+					break;
+				}
 			}
-			else {
-				break;
-			}
+			questionsAndAnswers[i][1] = String.valueOf(numberA);
 		}
-		return String.valueOf(numberA);
+		return questionsAndAnswers;
 	}
 }

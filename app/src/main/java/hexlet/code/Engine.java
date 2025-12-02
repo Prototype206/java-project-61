@@ -3,68 +3,44 @@ package hexlet.code;
 import java.util.Scanner;
 import java.util.Random;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-
 public final class Engine {
 	public static final Random random = new Random();
 	private static int scoreCounter = 0;
 	private static int scoreToWin = 3;
-	private static StringBuilder correctAnswer = new StringBuilder();
 	private static StringBuilder usersAnswer = new StringBuilder();
-	static final int EVEN_GAME_NUMBER = 2;
-	static final int CALC_GAME_NUMBER = 3;
-	static final int GCD_GAME_NUMBER = 4;
-	static final int PROGRESSION_GAME_NUMBER = 5;
-	static final int PRIME_GAME_NUMBER = 6;
+	
 	
 	private Engine() {
 		throw new AssertionError("Utility class instantiation prohibited");
 	}
 	
-	public static void runGame(int gameNumber, Scanner scanner) {
+	public static void runGame(String gameDescription, String[][] questionsAndAnswers) {
+		try(Scanner scanner = new Scanner(System.in)){
+		
+		System.out.println("\nWelcome to the Brain Games!");
+		System.out.print("May I have your name? ");
+		String userName = scanner.nextLine();
+		System.out.println("Hello, " + userName + "!");
+				
+		System.out.println(gameDescription);
 		for(int i = 0; i<scoreToWin; i++) {
-			correctAnswer.setLength(0);
 			usersAnswer.setLength(0);
-			
-			switch(gameNumber) {
-				case EVEN_GAME_NUMBER:
-					correctAnswer.append(Even.generateCorrectAnswer());
-					break;
-				case CALC_GAME_NUMBER:
-					correctAnswer.append(Calc.generateCorrectAnswer());
-					break;
-				case GCD_GAME_NUMBER:
-					correctAnswer.append(GCD.generateCorrectAnswer());
-					break;
-				case PROGRESSION_GAME_NUMBER:
-					correctAnswer.append(Progression.generateCorrectAnswer());
-					Progression.generateProgression();
-					break;
-				case PRIME_GAME_NUMBER:
-					correctAnswer.append(Prime.generateCorrectAnswer());
-					break;
-				default:
-					throw new IllegalArgumentException("Unknown number of game " + gameNumber);
-			}
+			System.out.println("Question: " + questionsAndAnswers[i][0]);
 			
 			System.out.print("Your answer: ");
 			usersAnswer.append(scanner.nextLine());
-			if(usersAnswer.toString().equals(correctAnswer.toString())) {
+			if(usersAnswer.toString().equals(questionsAndAnswers[i][1])) {
 				System.out.println("Correct!");
 				scoreCounter++;
 			}
 			else{
-				System.out.println(usersAnswer + " is wrong answer ;(. Correct answer was " + correctAnswer + ".\nLet\'s try again, " + Cli.USER_NAME + "!");
+				System.out.println(usersAnswer + " is wrong answer ;(. Correct answer was " + questionsAndAnswers[i][1] + ".\nLet\'s try again, " + userName + "!");
 				break;
-			}
-			if(scoreCounter == scoreToWin) {
-				System.out.println("Congratulations, " + Cli.USER_NAME);
-			}
+			}	
+		}
+		if(scoreCounter == scoreToWin) {
+			System.out.println("Congratulations, " + userName);
 		}
 	}
-
+	}
 }
