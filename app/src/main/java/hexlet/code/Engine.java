@@ -39,7 +39,7 @@ public final class Engine {
 			}	
 		}
 		if(scoreCounter == scoreToWin) {
-			System.out.println("Congratulations, " + userName);
+			System.out.println("Congratulations, " + userName + "!");
 		}
 	}
 	}
