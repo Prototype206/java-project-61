@@ -1,6 +1,9 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.random;
+import static hexlet.code.Engine.MAX_RANDOM_VALUE;
+import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
+import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
+import static hexlet.code.Engine.RANDOM;
 
 import hexlet.code.Engine;
 
@@ -12,17 +15,16 @@ public final class GCD {
 
     public static void startGameGCD() {
         String gameDescription = "Find the greatest common divisor of given numbers.";
-        String[][] questionsAndAnswers = new String[3][2];
-        questionsAndAnswers = generateQuestionAnswer(questionsAndAnswers);
-        Engine.runGame(gameDescription, questionsAndAnswers);
+        String[][] questionsAndAnswers = new String[NUMBER_OF_ARRAY_PAIRS][NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS];
+        Engine.runGame(gameDescription, generateQuestionAnswer(questionsAndAnswers));
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
-            int numberA = random.nextInt(100);
-            int numberB = random.nextInt(100);
+            int numberA = RANDOM.nextInt(MAX_RANDOM_VALUE);
+            int numberB = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int numberC;
             questionsAndAnswers[i][0] = numberA + " " + numberB;
             while (true) {

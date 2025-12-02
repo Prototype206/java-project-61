@@ -1,33 +1,34 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.random;
+import static hexlet.code.Engine.MAX_RANDOM_VALUE;
+import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
+import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
+import static hexlet.code.Engine.RANDOM;
 
 import hexlet.code.Engine;
 
 public final class Progression {
-
     private Progression() {
         throw new AssertionError("Utility class instantiation prohibited");
     }
 
     public static void startGameProgression() {
         String gameDescription = "What number is missing in the progression?";
-        String[][] questionsAndAnswers = new String[3][2];
-        questionsAndAnswers = generateQuestionAnswer(questionsAndAnswers);
-        Engine.runGame(gameDescription, questionsAndAnswers);
+        String[][] questionsAndAnswers = new String[NUMBER_OF_ARRAY_PAIRS][NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS];
+        Engine.runGame(gameDescription, generateQuestionAnswer(questionsAndAnswers));
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-        int maxValue = 20;
-        int minValue = 7;
+        final int MAX_VALUE = 20;
+        final int MIN_VALUE = 7;
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
-            int numberOne = random.nextInt(100);
-            int numberTwo = random.nextInt(100);
+            int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
+            int numberTwo = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int sumOfNumbers = numberOne;
-            int progressionLength = random.nextInt(maxValue - minValue + 1) + minValue;
-            int numberToSkip = random.nextInt(progressionLength);
+            int progressionLength = RANDOM.nextInt(MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;
+            int numberToSkip = RANDOM.nextInt(progressionLength);
             int correctAnswer = numberOne + numberTwo * numberToSkip;
             questionsAndAnswers[i][0] = generateProgression(numberTwo, sumOfNumbers, progressionLength, numberToSkip);
             questionsAndAnswers[i][1] = String.valueOf(correctAnswer);

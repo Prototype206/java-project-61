@@ -1,6 +1,9 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.random;
+import static hexlet.code.Engine.MAX_RANDOM_VALUE;
+import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
+import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
+import static hexlet.code.Engine.RANDOM;
 
 import hexlet.code.Engine;
 
@@ -11,9 +14,8 @@ public final class Prime {
 
     public static void startGamePrime() {
         String gameDescription = "Answer \'yes\' if given number is prime. Otherwise answer \'no\'.";
-        String[][] questionsAndAnswers = new String[3][2];
-        questionsAndAnswers = generateQuestionAnswer(questionsAndAnswers);
-        Engine.runGame(gameDescription, questionsAndAnswers);
+        String[][] questionsAndAnswers = new String[NUMBER_OF_ARRAY_PAIRS][NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS];
+        Engine.runGame(gameDescription, generateQuestionAnswer(questionsAndAnswers));
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
@@ -22,7 +24,7 @@ public final class Prime {
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
-            int number = random.nextInt(100);
+            int number = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int maxValue = (int) (Math.ceil(Math.sqrt(number)));
             questionsAndAnswers[i][0] = String.valueOf(number);
 

@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.massiveLength;
-import static hexlet.code.Engine.massiveLengthOfElements;
-import static hexlet.code.Engine.maxRandomValue;
-import static hexlet.code.Engine.random;
+import static hexlet.code.Engine.MAX_RANDOM_VALUE;
+import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
+import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
+import static hexlet.code.Engine.RANDOM;
 
 import hexlet.code.Engine;
 
@@ -15,8 +15,7 @@ public final class Calc {
 
     public static void startGameCalc() {
         String gameDescription = "What is the result of the expression?";
-        String[][] questionsAndAnswers = new String[massiveLength][massiveLengthOfElements];
-
+        String[][] questionsAndAnswers = new String[NUMBER_OF_ARRAY_PAIRS][NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS];
         Engine.runGame(gameDescription, generateQuestionAnswer(questionsAndAnswers));
     }
 
@@ -27,9 +26,9 @@ public final class Calc {
 
         for (int i = 0; i < numberOfIterations; i++) {
             int numberOfOperators = 3;
-            int numberOne = random.nextInt(maxRandomValue);
-            int numberTwo = random.nextInt(maxRandomValue);
-            int operationNumber = random.nextInt(numberOfOperators);
+            int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
+            int numberTwo = RANDOM.nextInt(MAX_RANDOM_VALUE);
+            int operationNumber = RANDOM.nextInt(numberOfOperators);
 
             switch (operationNumber) {
             case (0):

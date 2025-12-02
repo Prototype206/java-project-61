@@ -4,10 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public final class Engine {
-    public static final Random random = new Random();
-    public static int massiveLength = 3;
-    public static int massiveLengthOfElements = 2;
-    public static int maxRandomValue = 100;
+    public static final Random RANDOM = new Random();
+    public static final int NUMBER_OF_ARRAY_PAIRS = 3;
+    public static final int NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS = 2;
+    public static final int MAX_RANDOM_VALUE = 100;
 
     private static int scoreCounter = 0;
     private static int scoreToWin = 3;

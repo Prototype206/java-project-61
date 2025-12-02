@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.massiveLength;
-import static hexlet.code.Engine.massiveLengthOfElements;
-import static hexlet.code.Engine.maxRandomValue;
-import static hexlet.code.Engine.random;
+import static hexlet.code.Engine.MAX_RANDOM_VALUE;
+import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
+import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
+import static hexlet.code.Engine.RANDOM;
 
 import hexlet.code.Engine;
 
@@ -15,19 +15,19 @@ public final class Even {
 
     public static void startGameEven() {
         String gameDescription = "Answer \'yes\' if the number is even, otherwise answer \'no\'.";
-        String[][] questionsAndAnswers = new String[massiveLength][massiveLengthOfElements];
+        String[][] questionsAndAnswers = new String[NUMBER_OF_ARRAY_PAIRS][NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS];
         Engine.runGame(gameDescription, generateQuestionAnswer(questionsAndAnswers));
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-        final int evenDivisor = 2;
-        final int oddRemainder = 1;
+        final int EVEN_DIVISOR = 2;
+        final int ODD_REMAINDER = 1;
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
-            int randomNumber = random.nextInt(maxRandomValue);
+            int randomNumber = RANDOM.nextInt(MAX_RANDOM_VALUE);
             questionsAndAnswers[i][0] = String.valueOf(randomNumber);
-            if (randomNumber % evenDivisor == oddRemainder) {
+            if (randomNumber % EVEN_DIVISOR == ODD_REMAINDER) {
                 questionsAndAnswers[i][1] = "no";
             } else {
                 questionsAndAnswers[i][1] = "yes";
