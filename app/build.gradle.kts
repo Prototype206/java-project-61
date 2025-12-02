@@ -20,6 +20,7 @@ pmd{
 
 checkstyle{
 	toolVersion="12.1.2"
+	configFile = file("config/checkstyle/checkstyle.xml")
 }
 
 
