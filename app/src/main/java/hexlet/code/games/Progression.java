@@ -19,15 +19,15 @@ public final class Progression {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-        final int MAX_VALUE = 20;
-        final int MIN_VALUE = 7;
+        final int maxValue = 20;
+        final int minValue = 7;
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
             int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int numberTwo = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int sumOfNumbers = numberOne;
-            int progressionLength = RANDOM.nextInt(MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;
+            int progressionLength = RANDOM.nextInt(maxValue - minValue + 1) + minValue;
             int numberToSkip = RANDOM.nextInt(progressionLength);
             int correctAnswer = numberOne + numberTwo * numberToSkip;
             questionsAndAnswers[i][0] = generateProgression(numberTwo, sumOfNumbers, progressionLength, numberToSkip);

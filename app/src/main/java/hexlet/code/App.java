@@ -10,13 +10,13 @@ import hexlet.code.games.Progression;
 
 public class App {
     public static void main(String[] args) {
-        final int GREETINGS = 1;
-        final int EVEN_GAME = 2;
-        final int CALC_GAME = 3;
-        final int GCD_GAME = 4;
-        final int PROGRESSION_GAME = 5;
-        final int PRIME_GAME = 6;
-        final int EXIT = 0;
+        final int greetings = 1;
+        final int evenGame = 2;
+        final int calcGame = 3;
+        final int gcdGame = 4;
+        final int progressionGame = 5;
+        final int primeGame = 6;
+        final int exit = 0;
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter the game number and press Enter.");
@@ -31,25 +31,25 @@ public class App {
             }
 
             switch (usersChoise) {
-            case GREETINGS:
+            case greetings:
                 Cli.greetings();
                 break;
-            case EVEN_GAME:
+            case evenGame:
                 Even.startGameEven();
                 break;
-            case CALC_GAME:
+            case calcGame:
                 Calc.startGameCalc();
                 break;
-            case GCD_GAME:
+            case gcdGame:
                 GCD.startGameGCD();
                 break;
-            case PROGRESSION_GAME:
+            case progressionGame:
                 Progression.startGameProgression();
                 break;
-            case PRIME_GAME:
+            case primeGame:
                 Prime.startGamePrime();
                 break;
-            case EXIT:
+            case exit:
                 break;
             default:
                 throw new IllegalArgumentException("Unknown choise number " + usersChoise);

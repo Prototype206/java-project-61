@@ -25,7 +25,7 @@ public final class Calc {
         int correctAnswer;
 
         for (int i = 0; i < numberOfIterations; i++) {
-            int numberOfOperators = 3;
+            final int numberOfOperators = 3;
             int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int numberTwo = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int operationNumber = RANDOM.nextInt(numberOfOperators);

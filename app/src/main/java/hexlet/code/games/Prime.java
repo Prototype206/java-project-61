@@ -19,8 +19,8 @@ public final class Prime {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-        final int MIN_VALUE = 3;
-        final int EVEN_DIVISOR = 2;
+        final int minValue = 3;
+        final int evenDivisor = 2;
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
@@ -28,12 +28,12 @@ public final class Prime {
             int maxValue = (int) (Math.ceil(Math.sqrt(number)));
             questionsAndAnswers[i][0] = String.valueOf(number);
 
-            if (number == EVEN_DIVISOR) {
+            if (number == evenDivisor) {
                 questionsAndAnswers[i][1] = "yes";
-            } else if (number < EVEN_DIVISOR || number % EVEN_DIVISOR == 0) {
+            } else if (number < evenDivisor || number % evenDivisor == 0) {
                 questionsAndAnswers[i][1] = "no";
             } else {
-                for (int j = MIN_VALUE; j < maxValue; j++) {
+                for (int j = minValue; j < maxValue; j++) {
                     if (number % j == 0) {
                         questionsAndAnswers[i][1] = "no";
                         break;

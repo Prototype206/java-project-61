@@ -10,7 +10,7 @@ public final class Engine {
     public static final int MAX_RANDOM_VALUE = 100;
 
     private static int scoreCounter = 0;
-    private static int scoreToWin = 3;
+    private static final int SCORE_TO_WIN = 3;
     private static StringBuilder usersAnswer = new StringBuilder();
 
     private Engine() {
@@ -26,7 +26,7 @@ public final class Engine {
             System.out.println("Hello, " + userName + "!");
 
             System.out.println(gameDescription);
-            for (int i = 0; i < scoreToWin; i++) {
+            for (int i = 0; i < SCORE_TO_WIN; i++) {
                 usersAnswer.setLength(0);
                 System.out.println("Question: " + questionsAndAnswers[i][0]);
 
@@ -41,7 +41,7 @@ public final class Engine {
                     break;
                 }
             }
-            if (scoreCounter == scoreToWin) {
+            if (scoreCounter == SCORE_TO_WIN) {
                 System.out.println("Congratulations, " + userName + "!");
             }
         }

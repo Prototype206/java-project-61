@@ -20,14 +20,14 @@ public final class Even {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-        final int EVEN_DIVISOR = 2;
-        final int ODD_REMAINDER = 1;
+        final int evenDivisor = 2;
+        final int oddRemainder = 1;
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
             int randomNumber = RANDOM.nextInt(MAX_RANDOM_VALUE);
             questionsAndAnswers[i][0] = String.valueOf(randomNumber);
-            if (randomNumber % EVEN_DIVISOR == ODD_REMAINDER) {
+            if (randomNumber % evenDivisor == oddRemainder) {
                 questionsAndAnswers[i][1] = "no";
             } else {
                 questionsAndAnswers[i][1] = "yes";
