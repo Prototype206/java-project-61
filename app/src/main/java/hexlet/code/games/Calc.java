@@ -8,7 +8,7 @@ import static hexlet.code.Engine.RANDOM;
 import hexlet.code.Engine;
 
 public final class Calc {
-    private static final String[] ARRAY_OF_OPERATIONS = { "+", "-", "*" };
+    private static final String[] ARRAY_OF_OPERATIONS = {"+", "-", "*"};
 
     private Calc() {
         throw new AssertionError("Utility class instantiation prohibited");
