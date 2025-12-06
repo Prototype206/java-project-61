@@ -20,24 +20,27 @@ public final class GCD {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-        int numberOfIterations = questionsAndAnswers.length;
-
-        for (int i = 0; i < numberOfIterations; i++) {
-            int numberA = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int numberB = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int numberC;
-            questionsAndAnswers[i][0] = numberA + " " + numberB;
-            while (true) {
-                if (numberB > 0) {
-                    numberC = numberA;
-                    numberA = numberB;
-                    numberB = numberC % numberB;
-                } else {
-                    break;
-                }
-            }
-            questionsAndAnswers[i][1] = String.valueOf(numberA);
+        final int minValue = 1;
+        for (String[] pairs : questionsAndAnswers) {
+            int numberA = RANDOM.nextInt(MAX_RANDOM_VALUE + minValue);
+            int numberB = RANDOM.nextInt(MAX_RANDOM_VALUE + minValue);
+            pairs[0] = numberA + " " + numberB;
+            pairs[1] = String.valueOf(calculationNOD(numberA, numberB));
         }
         return questionsAndAnswers;
+    }
+
+    public static int calculationNOD(int numberA, int numberB) {
+        int numberC;
+        while (true) {
+            if (numberB > 0) {
+                numberC = numberA;
+                numberA = numberB;
+                numberB = numberC % numberB;
+            } else {
+                break;
+            }
+        }
+        return numberA;
     }
 }

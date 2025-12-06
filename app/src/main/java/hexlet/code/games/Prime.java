@@ -21,30 +21,30 @@ public final class Prime {
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
         final int minValue = 3;
         final int evenDivisor = 2;
-        int numberOfIterations = questionsAndAnswers.length;
 
-        for (int i = 0; i < numberOfIterations; i++) {
+        for (String[] pairs : questionsAndAnswers) {
             int number = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int maxValue = (int) (Math.ceil(Math.sqrt(number)));
-            questionsAndAnswers[i][0] = String.valueOf(number);
+            pairs[0] = String.valueOf(number);
 
             if (number == evenDivisor) {
-                questionsAndAnswers[i][1] = "yes";
+                pairs[1] = "yes";
             } else if (number < evenDivisor || number % evenDivisor == 0) {
-                questionsAndAnswers[i][1] = "no";
+                pairs[1] = "no";
             } else {
-                for (int j = minValue; j < maxValue; j++) {
-                    if (number % j == 0) {
-                        questionsAndAnswers[i][1] = "no";
-                        break;
-                    }
-                }
-            }
-            if (questionsAndAnswers[i][1] == null) {
-                questionsAndAnswers[i][1] = "yes";
+                pairs[1] = evenCheck(minValue, maxValue, number);
             }
         }
         return questionsAndAnswers;
+    }
+
+    public static String evenCheck(int minValue, int maxValue, int number) {
+        for (int j = minValue; j <= maxValue; j++) {
+            if (number % j == 0) {
+                return "no";
+            }
+        }
+        return "yes";
     }
 
 }

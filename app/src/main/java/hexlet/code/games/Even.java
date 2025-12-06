@@ -27,11 +27,7 @@ public final class Even {
         for (int i = 0; i < numberOfIterations; i++) {
             int randomNumber = RANDOM.nextInt(MAX_RANDOM_VALUE);
             questionsAndAnswers[i][0] = String.valueOf(randomNumber);
-            if (randomNumber % evenDivisor == oddRemainder) {
-                questionsAndAnswers[i][1] = "no";
-            } else {
-                questionsAndAnswers[i][1] = "yes";
-            }
+            questionsAndAnswers[i][1] = randomNumber % evenDivisor == oddRemainder ? "no" : "yes";
         }
         return questionsAndAnswers;
     }

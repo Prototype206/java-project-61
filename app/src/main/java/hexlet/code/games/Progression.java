@@ -21,33 +21,29 @@ public final class Progression {
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
         final int maxValue = 20;
         final int minValue = 7;
-        int numberOfIterations = questionsAndAnswers.length;
 
-        for (int i = 0; i < numberOfIterations; i++) {
+        for (String[] pairs : questionsAndAnswers) {
             int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int numberTwo = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int sumOfNumbers = numberOne;
+            int step = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int progressionLength = RANDOM.nextInt(maxValue - minValue + 1) + minValue;
             int numberToSkip = RANDOM.nextInt(progressionLength);
-            int correctAnswer = numberOne + numberTwo * numberToSkip;
-            questionsAndAnswers[i][0] = generateProgression(numberTwo, sumOfNumbers, progressionLength, numberToSkip);
-            questionsAndAnswers[i][1] = String.valueOf(correctAnswer);
+
+            String[] progressionArray = generateProgression(step, numberOne, progressionLength, numberToSkip);
+            pairs[1] = progressionArray[numberToSkip];
+            progressionArray[numberToSkip] = "..";
+            pairs[0] = String.join(" ", progressionArray);
         }
         return questionsAndAnswers;
     }
 
-    public static String generateProgression(int numberTwo, int sumOfNumbers, int progressionLength, int numberToSkip) {
-        StringBuilder progressionString = new StringBuilder();
-        for (int i = 0; i < progressionLength; i++) {
-            if (i == numberToSkip) {
-                progressionString.append(".. ");
-                sumOfNumbers += numberTwo;
-                continue;
-            }
-            progressionString.append(sumOfNumbers).append(" ");
-            sumOfNumbers += numberTwo;
-        }
-        return progressionString.toString();
-    }
+    public static String[] generateProgression(int step, int numberOne, int progressionLength, int numberToSkip) {
+        String[] progression = new String[progressionLength];
 
+        int sumOfNumbers = numberOne;
+        for (int i = 0; i < progressionLength; i++) {
+            progression[i] = String.valueOf(sumOfNumbers);
+            sumOfNumbers += step;
+        }
+        return progression;
+    }
 }

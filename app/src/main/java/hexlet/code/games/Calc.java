@@ -8,6 +8,7 @@ import static hexlet.code.Engine.RANDOM;
 import hexlet.code.Engine;
 
 public final class Calc {
+    private static final String[] ARRAY_OF_OPERATIONS = { "+", "-", "*" };
 
     private Calc() {
         throw new AssertionError("Utility class instantiation prohibited");
@@ -20,34 +21,41 @@ public final class Calc {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-
-        int numberOfIterations = questionsAndAnswers.length;
-        int correctAnswer;
-
-        for (int i = 0; i < numberOfIterations; i++) {
-            final int numberOfOperators = 3;
+        final int numberOfOperators = ARRAY_OF_OPERATIONS.length;
+        for (String[] pairs : questionsAndAnswers) {
             int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
             int numberTwo = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int operationNumber = RANDOM.nextInt(numberOfOperators);
-
-            switch (operationNumber) {
-            case (0):
-                questionsAndAnswers[i][0] = numberOne + " + " + numberTwo;
-                correctAnswer = numberOne + numberTwo;
-                break;
-            case (1):
-                questionsAndAnswers[i][0] = numberOne + " - " + numberTwo;
-                correctAnswer = numberOne - numberTwo;
-                break;
-            case (2):
-                questionsAndAnswers[i][0] = numberOne + " * " + numberTwo;
-                correctAnswer = numberOne * numberTwo;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown number of operation " + operationNumber);
-            }
-            questionsAndAnswers[i][1] = String.valueOf(correctAnswer);
+            int operator = RANDOM.nextInt(numberOfOperators);
+            pairs[0] = generateQuestion(numberOne, numberTwo, operator);
+            pairs[1] = String.valueOf(generateAnswer(numberOne, numberTwo, operator));
         }
         return questionsAndAnswers;
     }
+
+    public static String generateQuestion(int numberOne, int numberTwo, int operator) {
+        switch (ARRAY_OF_OPERATIONS[operator]) {
+        case "+":
+            return numberOne + " + " + numberTwo;
+        case "-":
+            return numberOne + " - " + numberTwo;
+        case "*":
+            return numberOne + " * " + numberTwo;
+        default:
+            throw new IllegalArgumentException("Unknown operator");
+        }
+    }
+
+    public static int generateAnswer(int numberOne, int numberTwo, int operator) {
+        switch (ARRAY_OF_OPERATIONS[operator]) {
+        case "+":
+            return numberOne + numberTwo;
+        case "-":
+            return numberOne - numberTwo;
+        case "*":
+            return numberOne * numberTwo;
+        default:
+            throw new IllegalArgumentException("Unknown operator");
+        }
+    }
+
 }

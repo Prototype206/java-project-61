@@ -8,10 +8,7 @@ public final class Engine {
     public static final int NUMBER_OF_ARRAY_PAIRS = 3;
     public static final int NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS = 2;
     public static final int MAX_RANDOM_VALUE = 100;
-
-    private static int scoreCounter = 0;
     private static final int SCORE_TO_WIN = 3;
-    private static StringBuilder usersAnswer = new StringBuilder();
 
     private Engine() {
         throw new AssertionError("Utility class instantiation prohibited");
@@ -26,18 +23,20 @@ public final class Engine {
             System.out.println("Hello, " + userName + "!");
 
             System.out.println(gameDescription);
-            for (int i = 0; i < SCORE_TO_WIN; i++) {
+            int scoreCounter = 0;
+            StringBuilder usersAnswer = new StringBuilder();
+            for (String[] pairs : questionsAndAnswers) {
                 usersAnswer.setLength(0);
-                System.out.println("Question: " + questionsAndAnswers[i][0]);
+                System.out.println("Question: " + pairs[0]);
 
                 System.out.print("Your answer: ");
                 usersAnswer.append(scanner.nextLine());
-                if (usersAnswer.toString().equals(questionsAndAnswers[i][1])) {
+                if (usersAnswer.toString().equals(pairs[1])) {
                     System.out.println("Correct!");
                     scoreCounter++;
                 } else {
-                    System.out.println(usersAnswer + " is wrong answer ;(. Correct answer was "
-                            + questionsAndAnswers[i][1] + ".\nLet\'s try again, " + userName + "!");
+                    System.out.println(usersAnswer + " is wrong answer ;(. Correct answer was " + pairs[1]
+                            + ".\nLet\'s try again, " + userName + "!");
                     break;
                 }
             }
