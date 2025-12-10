@@ -8,7 +8,6 @@ public final class Engine {
     public static final int NUMBER_OF_ARRAY_PAIRS = 3;
     public static final int NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS = 2;
     public static final int MAX_RANDOM_VALUE = 100;
-    private static final int SCORE_TO_WIN = 3;
 
     private Engine() {
         throw new AssertionError("Utility class instantiation prohibited");
@@ -40,7 +39,7 @@ public final class Engine {
                     break;
                 }
             }
-            if (scoreCounter == SCORE_TO_WIN) {
+            if (scoreCounter == NUMBER_OF_ARRAY_PAIRS) {
                 System.out.println("Congratulations, " + userName + "!");
             }
         }

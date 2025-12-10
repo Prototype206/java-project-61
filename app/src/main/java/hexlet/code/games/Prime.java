@@ -19,32 +19,31 @@ public final class Prime {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
-        final int minValue = 3;
-        final int evenDivisor = 2;
-
         for (String[] pairs : questionsAndAnswers) {
             int number = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int maxValue = (int) (Math.ceil(Math.sqrt(number)));
             pairs[0] = String.valueOf(number);
-
-            if (number == evenDivisor) {
-                pairs[1] = "yes";
-            } else if (number < evenDivisor || number % evenDivisor == 0) {
-                pairs[1] = "no";
-            } else {
-                pairs[1] = evenCheck(minValue, maxValue, number);
-            }
+            pairs[1] = isPrime(number);
         }
         return questionsAndAnswers;
     }
 
-    public static String evenCheck(int minValue, int maxValue, int number) {
-        for (int j = minValue; j <= maxValue; j++) {
-            if (number % j == 0) {
-                return "no";
+    public static String isPrime(int number) {
+        final int minValue = 3;
+        final int evenDivisor = 2;
+        int maxValue = (int) (Math.ceil(Math.sqrt(number)));
+
+        if (number == evenDivisor) {
+            return "yes";
+        } else if (number < evenDivisor || number % evenDivisor == 0) {
+            return "no";
+        } else {
+            for (int j = minValue; j <= maxValue; j++) {
+                if (number % j == 0) {
+                    return "no";
+                }
             }
+            return "yes";
         }
-        return "yes";
     }
 
 }
