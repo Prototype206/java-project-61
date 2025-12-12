@@ -22,27 +22,27 @@ public final class Prime {
         for (String[] pairs : questionsAndAnswers) {
             int number = RANDOM.nextInt(MAX_RANDOM_VALUE);
             pairs[0] = String.valueOf(number);
-            pairs[1] = isPrime(number);
+            pairs[1] = isPrime(number) ? "yes" : "no";
         }
         return questionsAndAnswers;
     }
 
-    public static String isPrime(int number) {
+    public static boolean isPrime(int number) {
         final int minValue = 3;
         final int evenDivisor = 2;
         int maxValue = (int) (Math.ceil(Math.sqrt(number)));
 
         if (number == evenDivisor) {
-            return "yes";
+            return true;
         } else if (number < evenDivisor || number % evenDivisor == 0) {
-            return "no";
+            return false;
         } else {
             for (int j = minValue; j <= maxValue; j++) {
                 if (number % j == 0) {
-                    return "no";
+                    return false;
                 }
             }
-            return "yes";
+            return true;
         }
     }
 

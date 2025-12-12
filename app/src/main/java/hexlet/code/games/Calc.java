@@ -8,7 +8,7 @@ import static hexlet.code.Engine.RANDOM;
 import hexlet.code.Engine;
 
 public final class Calc {
-    private static final String[] ARRAY_OF_OPERATIONS = {"+", "-", "*"};
+    private static final char[] ARRAY_OF_OPERATIONS = {'+', '-', '*'};
 
     private Calc() {
         throw new AssertionError("Utility class instantiation prohibited");
@@ -33,25 +33,20 @@ public final class Calc {
     }
 
     public static String generateQuestion(int numberOne, int numberTwo, int operator) {
-        switch (ARRAY_OF_OPERATIONS[operator]) {
-        case "+":
-            return numberOne + " + " + numberTwo;
-        case "-":
-            return numberOne + " - " + numberTwo;
-        case "*":
-            return numberOne + " * " + numberTwo;
-        default:
-            throw new IllegalArgumentException("Unknown operator");
-        }
+        return numberOne + " " + ARRAY_OF_OPERATIONS[operator] + " " + numberTwo;
     }
 
     public static int generateAnswer(int numberOne, int numberTwo, int operator) {
+        return calculate(numberOne, numberTwo, operator);
+    }
+
+    private static int calculate(int numberOne, int numberTwo, int operator) {
         switch (ARRAY_OF_OPERATIONS[operator]) {
-        case "+":
+        case '+':
             return numberOne + numberTwo;
-        case "-":
+        case '-':
             return numberOne - numberTwo;
-        case "*":
+        case '*':
             return numberOne * numberTwo;
         default:
             throw new IllegalArgumentException("Unknown operator");
