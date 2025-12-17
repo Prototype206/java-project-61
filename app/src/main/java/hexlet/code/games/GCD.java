@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.MAX_RANDOM_VALUE;
 import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
 import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
 
@@ -21,11 +20,12 @@ public final class GCD {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
+        final int maxRandomValue = 100;
         final Random random = new Random();
         final int minValue = 1;
         for (String[] pairs : questionsAndAnswers) {
-            int numberA = random.nextInt(MAX_RANDOM_VALUE + minValue);
-            int numberB = random.nextInt(MAX_RANDOM_VALUE + minValue);
+            int numberA = random.nextInt(maxRandomValue + minValue);
+            int numberB = random.nextInt(maxRandomValue + minValue);
             pairs[0] = numberA + " " + numberB;
             pairs[1] = String.valueOf(calculationNOD(numberA, numberB));
         }
