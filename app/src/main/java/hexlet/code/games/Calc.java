@@ -2,8 +2,7 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
 import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
-
-import java.util.Random;
+import static hexlet.code.Engine.RANDOM;
 
 import hexlet.code.Engine;
 
@@ -22,12 +21,11 @@ public final class Calc {
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
         final int maxRandomValue = 100;
-        final Random random = new Random();
         final int numberOfOperators = ARRAY_OF_OPERATIONS.length;
         for (String[] pairs : questionsAndAnswers) {
-            int numberOne = random.nextInt(maxRandomValue);
-            int numberTwo = random.nextInt(maxRandomValue);
-            char operator = ARRAY_OF_OPERATIONS[random.nextInt(numberOfOperators)];
+            int numberOne = RANDOM.nextInt(maxRandomValue);
+            int numberTwo = RANDOM.nextInt(maxRandomValue);
+            char operator = ARRAY_OF_OPERATIONS[RANDOM.nextInt(numberOfOperators)];
             pairs[0] = generateQuestion(numberOne, numberTwo, operator);
             pairs[1] = String.valueOf(generateAnswer(numberOne, numberTwo, operator));
         }
