@@ -3,7 +3,8 @@ package hexlet.code.games;
 import static hexlet.code.Engine.MAX_RANDOM_VALUE;
 import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
 import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
-import static hexlet.code.Engine.RANDOM;
+
+import java.util.Random;
 
 import hexlet.code.Engine;
 
@@ -19,14 +20,15 @@ public final class Progression {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
+        final Random random = new Random();
         final int maxValue = 20;
         final int minValue = 7;
 
         for (String[] pairs : questionsAndAnswers) {
-            int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int step = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int progressionLength = RANDOM.nextInt(maxValue - minValue + 1) + minValue;
-            int numberToSkip = RANDOM.nextInt(progressionLength);
+            int numberOne = random.nextInt(MAX_RANDOM_VALUE);
+            int step = random.nextInt(MAX_RANDOM_VALUE);
+            int progressionLength = random.nextInt(maxValue - minValue + 1) + minValue;
+            int numberToSkip = random.nextInt(progressionLength);
 
             String[] progressionArray = generateProgression(step, numberOne, progressionLength, numberToSkip);
             pairs[1] = progressionArray[numberToSkip];

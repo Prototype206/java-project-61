@@ -3,7 +3,8 @@ package hexlet.code.games;
 import static hexlet.code.Engine.MAX_RANDOM_VALUE;
 import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
 import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
-import static hexlet.code.Engine.RANDOM;
+
+import java.util.Random;
 
 import hexlet.code.Engine;
 
@@ -20,10 +21,11 @@ public final class GCD {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
+        final Random random = new Random();
         final int minValue = 1;
         for (String[] pairs : questionsAndAnswers) {
-            int numberA = RANDOM.nextInt(MAX_RANDOM_VALUE + minValue);
-            int numberB = RANDOM.nextInt(MAX_RANDOM_VALUE + minValue);
+            int numberA = random.nextInt(MAX_RANDOM_VALUE + minValue);
+            int numberB = random.nextInt(MAX_RANDOM_VALUE + minValue);
             pairs[0] = numberA + " " + numberB;
             pairs[1] = String.valueOf(calculationNOD(numberA, numberB));
         }

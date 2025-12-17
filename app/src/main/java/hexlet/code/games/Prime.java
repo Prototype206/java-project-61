@@ -3,7 +3,8 @@ package hexlet.code.games;
 import static hexlet.code.Engine.MAX_RANDOM_VALUE;
 import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
 import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
-import static hexlet.code.Engine.RANDOM;
+
+import java.util.Random;
 
 import hexlet.code.Engine;
 
@@ -19,8 +20,9 @@ public final class Prime {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
+        final Random random = new Random();
         for (String[] pairs : questionsAndAnswers) {
-            int number = RANDOM.nextInt(MAX_RANDOM_VALUE);
+            int number = random.nextInt(MAX_RANDOM_VALUE);
             pairs[0] = String.valueOf(number);
             pairs[1] = isPrime(number) ? "yes" : "no";
         }

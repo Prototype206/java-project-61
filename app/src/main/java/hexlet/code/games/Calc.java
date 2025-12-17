@@ -3,7 +3,8 @@ package hexlet.code.games;
 import static hexlet.code.Engine.MAX_RANDOM_VALUE;
 import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
 import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
-import static hexlet.code.Engine.RANDOM;
+
+import java.util.Random;
 
 import hexlet.code.Engine;
 
@@ -21,27 +22,28 @@ public final class Calc {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
+        final Random random = new Random();
         final int numberOfOperators = ARRAY_OF_OPERATIONS.length;
         for (String[] pairs : questionsAndAnswers) {
-            int numberOne = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int numberTwo = RANDOM.nextInt(MAX_RANDOM_VALUE);
-            int operator = RANDOM.nextInt(numberOfOperators);
+            int numberOne = random.nextInt(MAX_RANDOM_VALUE);
+            int numberTwo = random.nextInt(MAX_RANDOM_VALUE);
+            char operator = ARRAY_OF_OPERATIONS[random.nextInt(numberOfOperators)];
             pairs[0] = generateQuestion(numberOne, numberTwo, operator);
             pairs[1] = String.valueOf(generateAnswer(numberOne, numberTwo, operator));
         }
         return questionsAndAnswers;
     }
 
-    public static String generateQuestion(int numberOne, int numberTwo, int operator) {
-        return numberOne + " " + ARRAY_OF_OPERATIONS[operator] + " " + numberTwo;
+    public static String generateQuestion(int numberOne, int numberTwo, char operator) {
+        return numberOne + " " + operator + " " + numberTwo;
     }
 
-    public static int generateAnswer(int numberOne, int numberTwo, int operator) {
+    public static int generateAnswer(int numberOne, int numberTwo, char operator) {
         return calculate(numberOne, numberTwo, operator);
     }
 
-    private static int calculate(int numberOne, int numberTwo, int operator) {
-        switch (ARRAY_OF_OPERATIONS[operator]) {
+    private static int calculate(int numberOne, int numberTwo, char operator) {
+        switch (operator) {
         case '+':
             return numberOne + numberTwo;
         case '-':

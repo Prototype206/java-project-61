@@ -3,7 +3,8 @@ package hexlet.code.games;
 import static hexlet.code.Engine.MAX_RANDOM_VALUE;
 import static hexlet.code.Engine.NUMBER_OF_ARRAY_PAIRS;
 import static hexlet.code.Engine.NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS;
-import static hexlet.code.Engine.RANDOM;
+
+import java.util.Random;
 
 import hexlet.code.Engine;
 
@@ -20,12 +21,13 @@ public final class Even {
     }
 
     public static String[][] generateQuestionAnswer(String[][] questionsAndAnswers) {
+        final Random random = new Random();
         final int evenDivisor = 2;
         final int oddRemainder = 1;
         int numberOfIterations = questionsAndAnswers.length;
 
         for (int i = 0; i < numberOfIterations; i++) {
-            int randomNumber = RANDOM.nextInt(MAX_RANDOM_VALUE);
+            int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
             questionsAndAnswers[i][0] = String.valueOf(randomNumber);
             questionsAndAnswers[i][1] = randomNumber % evenDivisor == oddRemainder ? "no" : "yes";
         }

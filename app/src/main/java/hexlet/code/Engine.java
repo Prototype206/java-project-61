@@ -1,10 +1,8 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public final class Engine {
-    public static final Random RANDOM = new Random();
     public static final int NUMBER_OF_ARRAY_PAIRS = 3;
     public static final int NUMBER_OF_ELEMENTS_IN_ARRAY_PAIRS = 2;
     public static final int MAX_RANDOM_VALUE = 100;
